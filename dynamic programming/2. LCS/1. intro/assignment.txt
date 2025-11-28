@@ -1,0 +1,9 @@
+discuss this assignment: Given two sequences, a subsequence is a sequence that appears 
+in the same relative order, but not necessarily contiguous. For example, 
+
+         “abc”, “abg”, “bdf”, “aeg”, „”acefg”, .. etc are subsequences of “abcdefg”. 
+         So a string of length n has 2^n different possible subsequences. It is a classic 
+         computer science problem, the basis of file comparison programs and has applications
+          in bioinformatics. 
+         Develop a pro gram to implement the solution of Longest Common Sub-sequence 
+         problem.
