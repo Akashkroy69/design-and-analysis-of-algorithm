@@ -1,0 +1,175 @@
+---
+
+# ⭐ Short Notes: `std::vector` in C++
+
+`vector` is a **dynamic array** provided by the C++ STL.
+It can **grow and shrink automatically** and provides **fast random access**.
+
+---
+
+# ✅ **Key Features of Vector**
+
+### 1️⃣ **Dynamic Size**
+
+* Grows automatically when more elements are added.
+* Uses `capacity` internally (allocated memory) which grows **2x pattern**.
+
+### 2️⃣ **Contiguous Memory**
+
+* Stored like arrays → supports **random access**.
+* Very cache-friendly.
+
+### 3️⃣ **Supports Iterators**
+
+* Forward, reverse, constant, random-access iterators.
+
+### 4️⃣ **Rich Built-in Functions**
+
+* Helps perform insert, delete, find, modify, sort… very easily.
+
+### 5️⃣ **Automatic Memory Management**
+
+* Handles allocation & deallocation internally.
+
+### 6️⃣ **Efficient at End Operations**
+
+* `push_back()` and `pop_back()` are **O(1) amortized**.
+
+---
+
+# 🚀 **Common Vector Operations**
+
+### 🎯 **Create**
+
+```cpp
+vector<int> v;              // empty vector
+vector<int> v2(5);          // size 5, all values = 0
+vector<int> v3 = {1,2,3};   // initializer list
+```
+
+---
+
+# 📥 **Insert / Add Elements**
+
+### 1. `push_back()` → Insert at end
+
+**O(1)** amortized
+
+```cpp
+v.push_back(10);
+```
+
+### 2. `insert()` → Insert anywhere
+
+**O(n)** (shifts elements)
+
+```cpp
+v.insert(v.begin() + 2, 50);
+```
+
+### 3. `emplace_back()` → Constructs in place (faster than push_back)
+
+```cpp
+v.emplace_back(30);
+```
+
+---
+
+# 🗑 **Delete Elements**
+
+### 1. `pop_back()`
+
+Removes last element → **O(1)**
+
+```cpp
+v.pop_back();
+```
+
+### 2. `erase()`
+
+Delete at any position → **O(n)**
+
+```cpp
+v.erase(v.begin() + 1);
+v.erase(v.begin(), v.begin() + 3); // delete range
+```
+
+---
+
+# 📏 **Size & Capacity**
+
+```cpp
+v.size();       // current number of elements
+v.capacity();   // allocated space (may be larger)
+v.empty();      // checks if vector is empty
+v.clear();      // removes all elements (size = 0)
+```
+
+---
+
+# 🔄 **Access Elements**
+
+```cpp
+v[0];          // no bound checking
+v.at(0);       // has bound checking (safer)
+v.front();     // first element
+v.back();      // last element
+```
+
+---
+
+# 🔁 **Iterating**
+
+### Using iterators:
+
+```cpp
+for (auto it = v.begin(); it != v.end(); it++)
+    cout << *it;
+```
+
+### Reverse iteration:
+
+```cpp
+for (auto it = v.rbegin(); it != v.rend(); it++)
+    cout << *it;
+```
+
+---
+
+# 🔧 **Modify**
+
+### Resize vector:
+
+```cpp
+v.resize(10);   // new size = 10
+```
+
+### Reserve capacity:
+
+```cpp
+v.reserve(100); // avoid multiple reallocations
+```
+
+---
+
+# 🧠 **Internal Working**
+
+* Uses a **dynamic array** allocation.
+* When full → allocates new memory (usually 2×), copies old elements.
+* Old memory freed automatically.
+
+---
+
+# 📝 Summary Table
+
+| Operation     | Function         | Time Complexity |
+| ------------- | ---------------- | --------------- |
+| Insert end    | `push_back()`    | O(1) amortized  |
+| Delete end    | `pop_back()`     | O(1)            |
+| Insert middle | `insert()`       | O(n)            |
+| Delete middle | `erase()`        | O(n)            |
+| Random access | `v[i]`, `v.at()` | O(1)            |
+| Search        | linear / O(n)    | unless sorted   |
+
+---
+

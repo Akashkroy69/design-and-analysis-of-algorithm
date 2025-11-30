@@ -55,6 +55,8 @@ def setup_edges():
                 e.grid(row=i, column=j*2 + 1)
                 row.append(e)
             edges.append(row)
+        for i in range(5):
+             print("---hello---")
     except:
         messagebox.showerror("Error", "Enter valid numbers!")
 
